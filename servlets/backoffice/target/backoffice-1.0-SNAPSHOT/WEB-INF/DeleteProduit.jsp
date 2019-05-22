@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="<% request.getContextPath(); %>/backoffice/nouveau-produit"><span
+                <a class="nav-link" href="<% request.getContextPath(); %>/backoffice/produit"><span
                         class="sr-only">(current)</span></a>
             </li>
         </ul>

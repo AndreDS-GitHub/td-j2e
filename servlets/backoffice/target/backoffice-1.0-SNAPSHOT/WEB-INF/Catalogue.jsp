@@ -26,6 +26,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="<% request.getContextPath(); %>/backoffice/produit">Ajouter produit<span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<% request.getContextPath(); %>/backoffice/deconnexion">Deconnexion<span class="sr-only">(current)</span></a>
+                </li>
             </ul>
         </div>
     </nav>
