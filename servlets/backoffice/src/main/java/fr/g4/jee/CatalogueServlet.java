@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CatalogueServlet", urlPatterns = "/catalogue-servlet")
+@WebServlet(name = "CatalogueServlet", urlPatterns = "/catalogue")
 public class CatalogueServlet extends HttpServlet {
     // on injecte un bean de CatalogueService
     @EJB
@@ -19,6 +19,15 @@ public class CatalogueServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doGet(req, resp);
         // On récupère la liste des produits
+        Produit banane = new Produit("Banane", 0.98);
+        Produit fraise = new Produit("Fraise", 2.80);
+        Produit pomme = new Produit("Pomme", 1.80);
+        Produit orange = new Produit("Orange", 1.74);
+        catalogueService.create(banane);
+        catalogueService.create(fraise);
+        catalogueService.create(pomme);
+        catalogueService.create(orange);
+
         final List<Produit> produits = catalogueService.findAll();
 
         // On partage les données avec la JSP (niveau Requête)

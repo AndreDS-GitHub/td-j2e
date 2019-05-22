@@ -19,7 +19,12 @@ public class CatalogueServiceBean implements CatalogueService{
         produits.add(produit);
     }
 
-    public Produit findByName(String name) {
+    public Produit findByName(String nom) {
+        for (Produit produit: produits) {
+            if (produit.getNom().equals(nom)) {
+                return produit;
+            }
+        }
         return null;
     }
 
@@ -28,13 +33,20 @@ public class CatalogueServiceBean implements CatalogueService{
     }
 
     public void update(Produit produit) {
-
+        Integer cpt = 0;
+        for (Produit produitCourant: produits) {
+            if (produitCourant.getNom().equals(produit.getNom())) {
+                produits.set(cpt, produit);
+            }
+            cpt++;
+        }
     }
 
     public void deleteByNom(String nom) {
-        Iterator iterator = produits.iterator();
-        while (iterator.hasNext()) {
-            
+        for (Produit produit: produits) {
+            if (produit.getNom().equals(nom)) {
+                produits.remove(produit);
+            }
         }
     }
 }
