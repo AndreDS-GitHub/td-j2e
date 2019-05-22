@@ -21,21 +21,10 @@ public class DeconnexionServlet extends HttpServlet {
 
     public static final String VUE = "/WEB-INF/Connexion.jsp";
 
-
-
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-
         HttpSession session = request.getSession();
-
-        /* Affichage de la page d'inscription */
-
-
-
         session.setAttribute("ATT_SESSION_USER", null);
-
-
-
-
+        response.sendRedirect("/backoffice/catalogue");
     }
 
 }

@@ -1,3 +1,5 @@
-fr\g4\jee\TestServlet.class
+fr\g4\jee\AdminServlet.class
 fr\g4\jee\ProduitServlet.class
 fr\g4\jee\CatalogueServlet.class
+fr\g4\jee\ConnexionServlet.class
+fr\g4\jee\DeconnexionServlet.class

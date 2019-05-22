@@ -17,42 +17,26 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Connexion", urlPatterns = "/connexion")
 public class ConnexionServlet extends HttpServlet {
 
-    public static final String VUE = "/WEB-INF/Connexion.jsp";
-    public static final String CHAMP_ID = "identifiant";
-    public static final String CHAMP_PASS = "motdepasse";
-
-    public static final String ATT_SESSION_USER = "sessionUtilisateur";
-
-
+    public final String VUE = "/WEB-INF/Connexion.jsp";
+    public final String CHAMP_ID = "identifiant";
+    public final String CHAMP_PASS = "motdepasse";
+    public final String ATT_SESSION_USER = "sessionUtilisateur";
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-
         String identifiant = request.getParameter( CHAMP_ID );
         String motDePasse = request.getParameter( CHAMP_PASS );
 
-
-
-        if (identifiant != null && motDePasse != null) {
-            if (identifiant.equals("admin") && motDePasse.equals("password")){
-                HttpSession session = request.getSession();
-                session.setAttribute("ATT_SESSION_USER", "O");
-                response.sendRedirect("/backoffice/admin");
-            }
-            else {
-                response.sendRedirect("/backoffice/connexion");
-            }
+        if (identifiant != null && motDePasse != null && identifiant.equals("admin") && motDePasse.equals("changeit")) {
+            HttpSession session = request.getSession();
+            session.setAttribute("ATT_SESSION_USER", "Connected");
+            response.sendRedirect("/backoffice/catalogue");
         }
         else {
             response.sendRedirect("/backoffice/connexion");
         }
-
-
     }
-
 }
